@@ -1,4 +1,4 @@
-.taskDescriptionContainer{
+.taskDescriptionContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,7 +10,7 @@
     padding: 15px;
 }
 
-.editContainer{
+.editContainer {
     display: flex;
     align-items: center;
     margin: 5px 5px 5px 5px;
@@ -18,7 +18,7 @@
     width: 100%;
 }
 
-.inputTask{
+.inputTask {
     width: 50%;
     height: 3rem;
     background: #FFFF;
@@ -27,31 +27,37 @@
     font-size: 1em;
 }
 
-.saveButton{
+.saveButton {
     width: 25%;
     margin-left: 5px;
     height: 3.1rem;
     border: solid 1px;
     border-color: #FFFF;
-    color:#FFFF;
+    color: #FFFF;
     background: none;
-    cursor:pointer;
+    cursor: pointer;
     transition-duration: 0.4s;
     font-family: sans-serif;
     font-size: 1em;
 }
 
-.saveButton:hover{
+.saveButton:hover {
     background-color: #d833d8;
 
 }
 
 
 
-@keyframes lineTextAnimation{
-    0%   { width : 0; }
-    100% { width: 100%; }
-  }
+@keyframes lineTextAnimation {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
 .lineText {
     position: relative;
 }
@@ -71,13 +77,13 @@
     animation-fill-mode: forwards;
 }
 
-.buttonsIcons{
+.buttonsIcons {
     border: none;
     background: none;
     cursor: pointer;
 }
 
-.imgIcon{
+.imgIcon {
     width: 25px;
     height: 25px;
 }

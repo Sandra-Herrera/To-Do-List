@@ -6,34 +6,34 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const ToDoItem = (props) => {
-    const [isEditing,setIsEditing] = useState(false);
-    const [initialValue,setInitialValue] =useState("");
+    const [isEditing, setIsEditing] = useState(false);
+    const [initialValue, setInitialValue] = useState("");
     const [isDone, setIsDone] = useState(false);
-    
-    const [description, setDescription] = useState(props.taskDescription);
-    useEffect(()=>{
-        setDescription(props.taskDescription)
-    },[props.taskDescription])
 
-    const deleteItem = (e) =>{
+    const [description, setDescription] = useState(props.taskDescription);
+    useEffect(() => {
+        setDescription(props.taskDescription)
+    }, [props.taskDescription])
+
+    const deleteItem = (e) => {
         props.deleteTaskChild(description, parseInt(e.target.id));
     }
 
-    const onEdit = () =>{
+    const onEdit = () => {
         setInitialValue(description);
         setIsEditing(true);
     }
 
-    const saveChanges = (e) =>{
+    const saveChanges = (e) => {
         props.editTaskChild(initialValue, description, parseInt(e.target.id));
         setIsEditing(false);
     }
 
-    const onChangeValueTask = (e) =>{
+    const onChangeValueTask = (e) => {
         setDescription(e.target.value);
     };
 
-    const taskDone = (e) =>{
+    const taskDone = (e) => {
         setIsDone(!isDone);
     }
 
@@ -46,8 +46,8 @@ const ToDoItem = (props) => {
                             <input type="text" placeholder="Edit your task here" className={styles.inputTask} onChange={onChangeValueTask} value={description}></input>
                             <button className={styles.saveButton} id={props.index} onClick={saveChanges}>Save</button>
                         </section>
-                    </> 
-                    : 
+                    </>
+                    :
                     <>
                         <span className={isDone ? styles.lineText : ''} onClick={taskDone}>{description}</span>
                         <section className={styles.buttonsArea}>
@@ -66,8 +66,8 @@ const ToDoItem = (props) => {
                             </button>
                         </section>
                     </>
-                } 
-                
+                }
+
             </section>
         </>
     );

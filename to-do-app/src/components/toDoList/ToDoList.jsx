@@ -58,24 +58,24 @@ const ToDoList = () => {
                 <section className={styles.container} >
                     <header className={styles.headerTitle}>
                         <h1 className={styles.titleToDoList}>To Do App
-                        <img alt="iconPin"
-                            className={styles.pinIcon}
-                            src={pinIcon}>
-                        </img>
+                            <img alt="iconPin"
+                                className={styles.pinIcon}
+                                src={pinIcon}>
+                            </img>
                         </h1>
                         <span className={styles.subTitle}>Enjoy managing your tasks!</span>
                         <hr />
                     </header>
                     <section className={styles.containerItems}>
-                        {listTask.length === 0 ? 
-                        <div className={styles.messageArea}>
-                        <span className={styles.message}>Add a new task here
-                        <img alt="iconDown"
-                            className={styles.downIcon}
-                            src={imgDown}>
-                        </img>
-                        </span> 
-                        </div>
+                        {listTask.length === 0 ?
+                            <div className={styles.messageArea}>
+                                <span className={styles.message}>Add a new task here
+                                    <img alt="iconDown"
+                                        className={styles.downIcon}
+                                        src={imgDown}>
+                                    </img>
+                                </span>
+                            </div>
                             :
                             listTask.map((item, index) => {
                                 return <ToDoItem key={index} index={index} taskDescription={item} deleteTaskChild={deleteTask} editTaskChild={editTask} />

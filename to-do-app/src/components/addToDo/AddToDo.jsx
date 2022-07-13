@@ -1,19 +1,18 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
 import styles from "./addToDo.module.css";
-
 
 
 const AddToDo = (props) => {
 
     const [valueTask, setValueTask] = useState();
-    
-   
 
-    const onChangeValueTask = (e) =>{
+
+
+    const onChangeValueTask = (e) => {
         setValueTask(e.target.value);
     };
 
-    const callParent = () =>{
+    const callParent = () => {
         props.addTaskChild(valueTask);
         setValueTask("");
     };
