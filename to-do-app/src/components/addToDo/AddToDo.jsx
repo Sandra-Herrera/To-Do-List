@@ -1,4 +1,6 @@
 import React, { useState }from "react";
+import styles from "./addToDo.module.css";
+
 
 
 const AddToDo = (props) => {
@@ -18,9 +20,9 @@ const AddToDo = (props) => {
 
     return (
         <>
-            <section>
-                <input type="text" placeholder="Type your task here" onChange={onChangeValueTask}></input>
-                <button onClick={callParent}>Add</button>
+            <section className={styles.addToDoContainer}>
+                <input type="text" placeholder="Type your task here" className={styles.inputTask} onChange={onChangeValueTask}></input>
+                <button className={styles.addButton} onClick={callParent}>{props.messageBtn}</button>
             </section>
         </>
 
