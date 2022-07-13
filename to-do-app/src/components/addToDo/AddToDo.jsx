@@ -15,13 +15,13 @@ const AddToDo = (props) => {
 
     const callParent = () =>{
         props.addTaskChild(valueTask);
-
+        setValueTask("");
     };
 
     return (
         <>
             <section className={styles.addToDoContainer}>
-                <input type="text" placeholder="Type your task here" className={styles.inputTask} onChange={onChangeValueTask}></input>
+                <input type="text" placeholder="Type your task here" className={styles.inputTask} onChange={onChangeValueTask} value={valueTask}></input>
                 <button className={styles.addButton} onClick={callParent}>{props.messageBtn}</button>
             </section>
         </>
