@@ -15,8 +15,8 @@ const ToDoItem = (props) => {
         setDescription(props.taskDescription)
     },[props.taskDescription])
 
-    const deleteItem = () =>{
-        props.deleteTaskChild(description);
+    const deleteItem = (e) =>{
+        props.deleteTaskChild(description, parseInt(e.target.id));
     }
 
     const onEdit = () =>{
@@ -24,8 +24,8 @@ const ToDoItem = (props) => {
         setIsEditing(true);
     }
 
-    const saveChanges = () =>{
-        props.editTaskChild(initialValue, description)
+    const saveChanges = (e) =>{
+        props.editTaskChild(initialValue, description, parseInt(e.target.id));
         setIsEditing(false);
     }
 
@@ -44,7 +44,7 @@ const ToDoItem = (props) => {
                     <>
                         <section className={styles.editContainer}>
                             <input type="text" placeholder="Edit your task here" className={styles.inputTask} onChange={onChangeValueTask} value={description}></input>
-                            <button className={styles.saveButton} onClick={saveChanges}>Save</button>
+                            <button className={styles.saveButton} id={props.index} onClick={saveChanges}>Save</button>
                         </section>
                     </> 
                     : 
@@ -60,6 +60,7 @@ const ToDoItem = (props) => {
                             <button className={styles.buttonsIcons} onClick={deleteItem}>
                                 <img alt="iconDelete"
                                     className={styles.imgIcon}
+                                    id={props.index}
                                     src={imgDelete}>
                                 </img>
                             </button>

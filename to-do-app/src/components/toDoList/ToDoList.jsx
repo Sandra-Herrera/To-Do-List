@@ -35,16 +35,16 @@ const ToDoList = () => {
         setTrackTask(localStorageData);
     };
 
-    const deleteTask = (valueTask) => {
+    const deleteTask = (valueTask, indexTask) => {
         let localStorageData = getDataFromLocalStorage();
-        localStorageData = localStorageData.filter((element)=>element !== valueTask);
+        localStorageData = localStorageData.filter((element,indx)=>indx!==indexTask);
         window.localStorage.setItem('tasks', JSON.stringify(localStorageData));
         setTrackTask(localStorageData);
     };
 
-    const editTask = (initialValue, editedValue) => {
+    const editTask = (initialValue, editedValue, indexTask) => {
         let localStorageData = getDataFromLocalStorage();
-        localStorageData = localStorageData.map((element) => element = (element === initialValue ?  editedValue : element));
+        localStorageData = localStorageData.map((element,indx) => element = (element === initialValue && indx === indexTask ?  editedValue : element));
         window.localStorage.setItem('tasks', JSON.stringify(localStorageData));
         setTrackTask(localStorageData);
     }
@@ -61,7 +61,7 @@ const ToDoList = () => {
                     </header>
                     <section className={styles.containerItems}>
                         {listTask.map((item, index) => {
-                            return <ToDoItem key={index}  taskDescription={item} deleteTaskChild={deleteTask} editTaskChild={editTask}/>
+                            return <ToDoItem key={index} index={index} taskDescription={item} deleteTaskChild={deleteTask} editTaskChild={editTask}/>
                         })}
                     </section>
                     <AddToDo addTaskChild={addTask} messageBtn={"Add To Do"}/>
